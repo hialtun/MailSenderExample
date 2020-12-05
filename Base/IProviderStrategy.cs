@@ -4,8 +4,8 @@ using System.Text;
 
 namespace MailSenderExample.Base
 {
-    public interface IMailSender<T,I>
+    public interface IProviderStrategy<T> where T : class
     {
-        void SendMail();
+        void Send(T mailContent);
     }
 }

@@ -1,11 +1,12 @@
 ﻿using MailSenderExample.Base;
+using MailSenderExample.EmailerStrategy;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace MailSenderExample.Campaign
 {
-    public class CampaignMailSender : MailSenderTemplate<CampaignContent>
+    public class CampaignMailSender : MailSenderTemplate<CampaignContent, SMTPProvider<CampaignContent>>
     {
         public CampaignMailSender(CampaignContent campaignContent) : base(campaignContent) {}
 
@@ -16,6 +17,11 @@ namespace MailSenderExample.Campaign
                 _mailContent.Body += "Product: " + item.Value + " Price: " + item.Key.ToString() + " ";
             }
             Console.WriteLine(_mailContent.Body);
+        }
+
+        protected override void SetProvider()
+        {
+            _provider = new SMTPProvider<CampaignContent>();
         }
 
         protected override void SetSubject()

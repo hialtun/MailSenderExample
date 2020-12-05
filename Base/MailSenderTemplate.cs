@@ -4,9 +4,11 @@ using System.Text;
 
 namespace MailSenderExample.Base
 {
-    public abstract class MailSenderTemplate<T> : IMailSender<T> where T : BaseContent
+    public abstract class MailSenderTemplate<T, I> : IMailSender<T, I> where T : BaseContent where I : IProviderStrategy<T>
     {
         protected T _mailContent;
+        protected I _provider;
+
         public MailSenderTemplate(T mailContent)
         {
             _mailContent = mailContent;
@@ -14,13 +16,15 @@ namespace MailSenderExample.Base
         protected abstract void SetSubject();
         protected abstract void SetToAddress();
         protected abstract void SetBody();
+        protected abstract void SetProvider();
 
         public void SendMail()
         {
             SetSubject();
             SetToAddress();
             SetBody();
-            // Set SMTP or API config then send mail
+            SetProvider();
+            _provider.Send(_mailContent);
         }
     }
 }
