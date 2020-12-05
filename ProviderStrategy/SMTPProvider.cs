@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MailSenderExample.EmailerStrategy
+namespace MailSenderExample.ProviderStrategy
 {
     public class SMTPProvider<T> : IProviderStrategy<T> where T : BaseContent
     {

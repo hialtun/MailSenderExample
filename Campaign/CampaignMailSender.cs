@@ -1,5 +1,5 @@
 ﻿using MailSenderExample.Base;
-using MailSenderExample.EmailerStrategy;
+using MailSenderExample.ProviderStrategy;
 using System;
 using System.Collections.Generic;
 using System.Text;

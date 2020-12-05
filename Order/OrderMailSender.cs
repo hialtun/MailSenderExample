@@ -1,5 +1,5 @@
 ﻿using MailSenderExample.Base;
-using MailSenderExample.EmailerStrategy;
+using MailSenderExample.ProviderStrategy;
 using System;
 
 namespace MailSenderExample.Order

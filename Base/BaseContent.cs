@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MailSenderExample.Base
 {
-    public class BaseContent 
+    public class BaseContent : IBase
     {
         public string Subject { get; set; }
         public string Body { get; set; }
