@@ -1,2 +1,2 @@
 # MailSenderExample
-Mail sender example using template pattern
+Mail sender example using template and strategy patterns
